@@ -1,2 +1,2 @@
-# Spring Core Demo
+# Spring Core Demo using XML configuration
 
