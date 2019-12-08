@@ -18,7 +18,7 @@ public class EmployeeRepository {
     }
 
     public List<Employee> findAllEmployees() {
-        return new ArrayList<Employee>(storage.values());
+        return new ArrayList<>(storage.values());
     }
 
     public Employee findById(Integer id) {
