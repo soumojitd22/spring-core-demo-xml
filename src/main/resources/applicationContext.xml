@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="employee1" class="com.demo.model.Employee">
+        <property name="name" value="Ram"/>
+        <property name="id" value="100"/>
+        <property name="salary" value="30000"/>
+    </bean>
+    <bean id="employee2" class="com.demo.model.Employee">
+        <property name="name" value="Rahim"/>
+        <property name="id" value="101"/>
+        <property name="salary" value="40000"/>
+    </bean>
+
+    <bean id="repository" class="com.demo.repository.EmployeeRepository">
+        <constructor-arg>
+            <map>
+                <entry key="100" value-ref="employee1"/>
+                <entry key="101" value-ref="employee2"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="employeeService" class="com.demo.service.EmployeeService">
+        <constructor-arg name="repository" ref="repository"/>
+    </bean>
+</beans>
